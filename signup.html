@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1024" />
+  <title>Sign Up</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+
+    .signup-box {
+      background-color: #f4f4f4;
+      border: 2px solid maroon;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .signup-box h2 {
+      margin-bottom: 20px;
+      color: maroon;
+    }
+
+    .signup-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .signup-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: maroon;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .signup-box p {
+      margin-top: 15px;
+    }
+
+    .signup-box a {
+      color: maroon;
+      text-decoration: none;
+    }
+
+    .signup-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Sign Up</h2>
+    <form id="signup-form">
+      <input type="text" id="first-name" placeholder="First Name" required><br>
+      <input type="text" id="last-name" placeholder="Last Name" required><br>
+      <input type="email" id="email" placeholder="Email" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <input type="text" id="contact" placeholder="Contact Number" required><br>
+      <button type="submit">Create Account</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Log In</a></p>
+  </div>
+
+  <script>
+    const signupForm = document.getElementById("signup-form");
+
+    signupForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const user = {
+        firstName: document.getElementById("first-name").value,
+        lastName: document.getElementById("last-name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        contactNumber: document.getElementById("contact").value
+      };
+
+      localStorage.setItem("user", JSON.stringify(user));
+      alert("Account created! You can now log in.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
